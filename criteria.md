@@ -51,63 +51,43 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Confidence coverage
 
-<!-- Your criterion. It must name a number. -->
+At least 70% of the model's predictions on the held-out test set have confidence of 0.7 or higher.
 
-
-
-**Why this target:**
-
-
+**Why this target:** `racing` vs. `accomplishments` is my hardest boundary, and I expect a meaningful share of posts to sit close to it. If the model is routinely unsure, that's itself informative about whether my taxonomy's boundaries are learnable from 200 examples, not just about model quality.
 
 ---
 
-## 2.
+## 2. Overall accuracy
 
-<!-- Your criterion. -->
+Overall accuracy of at least 0.9 on the held-out test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** This is a deliberately ambitious number — the staff agreement rate between two humans applying a written rule is expected to land "in the 70s," so a fine-tuned model clearing 0.9 overall accuracy would be a strong result. I'd rather name a target I might miss and learn something from than one that's trivially easy.
 
 ---
 
-## 3.
+## 3. Edge-case accuracy
 
-<!-- Your criterion. -->
+At least 0.8 accuracy on posts I flag as boundary cases (ones that plausibly could have been labelled under more than one of my three labels) in the test split.
 
-
-
-**Why this target:**
-
-
+**Why this target:** My taxonomy's hardest boundary (`accomplishments` vs. `racing`, and the related `racing` vs. `health_and_nutrition` split) is exactly where I expect the model to struggle most. Looser than my overall accuracy target because this subset will be small and the score will swing more between seeds.
 
 ---
 
-## 4.
+## 4. Per-label performance
 
-<!-- Your criterion. -->
+Every label has an F1 of at least 0.60 on the held-out test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** `racing` or `health_and_nutrition` is likely to be my smallest label based on what I've seen collecting posts so far — `accomplishments` posts are common on RunningAHEAD. A uniform 0.60 floor means no label is allowed to fail even if it has fewer training examples.
 
 ---
 
-## 5.
+## 5. Consistency with staff labels
 
-<!-- Your criterion. -->
+I'll agree with the staff labels on at least 70% of the 30-post agreement set (`agreement.py`).
 
-
-
-**Why this target:**
-
-
+**Why this target:** `data/staff_taxonomy.md` states directly that a rate "in the 70s is normal and expected" for this exercise, since several of the 30 posts were deliberately chosen to be ambiguous. I'm using the course's own stated baseline as my number rather than guessing one.
 
 ---
 
