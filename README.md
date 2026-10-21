@@ -54,33 +54,41 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `racing`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** Advice or tips about racing itself — strategy, pacing, race-day decisions, or diet/workout prep tied specifically to an upcoming or recent race. Not personal results, and not general health advice.
 
 **Example 1:**
->
+> "One thing I forgot to mention in my notes: be careful over the coming months running in heat. I had run plenty of hot races in the past, but the 2022 NYC Marathon was a different level (72-74F with very high humidity)... heat exhaustion can cause your body to effectively stop you from trying anything again that will get you close to that line again." — JMac11
 
 **Example 2:**
->
+> "I have negative talent for trail races. I seem to have the strength and aerobic capacity, but severely lack muscular endurance and motor coordination as compared to most trail runners. The solution is simple: go to the trail and run and run and run until the lugs on the shoe fall off. Work my way up to the point that I can easy run a trail race." — flavio2025
+
+### `health_and_nutrition`
+
+**Definition:** Food, workout, recovery, or pre-race-ritual advice that is **not** tied to one specific race — general stretches, meals, and training methods for running health, outside of race-specific prep.
+
+**Example 1:**
+> "I'm currently training for my upcoming running goals and trying to be more disciplined with my recovery days... experiencing tight hip flexors and lower back stiffness while increasing weekly mileage... exploring Pilates-based cross-training for active recovery." — Emwilsn
+
+**Example 2:**
+> "For those who have one stiff side that seemingly refuses to respond to stretching, here's a three-minute video that could be a game-changer: How and Why to Practice the Barry Get-up Exercise. I found I could do one side just fine after maybe three attempts, but that stiff side? That's gonna be a project." — ch17
+
+### `accomplishments`
+
+**Definition:** The writer announcing or celebrating their own milestone, PR, streak, or progress update — including race times, scores, and results, even when the post is about a race.
+
+**Example 1:**
+> "I did it yesterday! I hit 40,000 miles towards the end of my long run." — Lane
+
+**Example 2:**
+> "Made it! Started tracking mid-2012, so that's an average of 2500 miles/yr over 14 years!" — DavePNW
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `accomplishments` vs. `racing`
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+**The decision rule I used every time:** If the post reports the writer's own times, scores, or progress — even if it's about a specific race — it's `accomplishments`. `racing` is reserved for tips and advice about racing itself, not for stating outcomes. (A related rule for the second-hardest boundary, `racing` vs. `health_and_nutrition`: a diet or workout tip tied specifically to preparing for a race is `racing`; the same kind of tip with no specific race attached is `health_and_nutrition`.)
 
 
 
