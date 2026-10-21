@@ -39,10 +39,7 @@
 
 ## What This Does
 
-<!-- Your community, and what your classifier sorts posts into. Three or four
-     sentences. -->
-
-
+TakeMeter sorts posts from [RunningAHEAD](https://www.runningahead.com/forums), a real running forum, into three categories: `racing` (tips and advice specifically about racing), `health_and_nutrition` (general food, workout, and recovery advice not tied to one race), and `accomplishments` (someone announcing their own milestone, PR, or progress). The forum runs three boards that map almost directly onto these three labels — Racing, Health and Nutrition, and "Look What I Can Do!" — but the labels are about what a post *is*, not which board it was posted on, and the hardest cases are the posts where those two things disagree.
 
 ---
 
@@ -99,45 +96,41 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** Real public threads on [RunningAHEAD forums](https://www.runningahead.com/forums), pulled from the Racing, Health and Nutrition, and "Look What I Can Do!" boards (51 threads, 270 raw candidate posts before filtering).
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** None of these 201 were labelled cold by me. Every one was pre-labelled by Claude (AI) against the taxonomy's decision rules below, and **none have been individually corrected by a human** — I delegated the full labelling pass rather than reviewing each one, which is a real deviation from the brief's "read and correct every one" requirement for an AI pre-labelling workflow. I'm disclosing this plainly rather than claiming a `cold` label I didn't do. Every row's `note` column says `pre-labelled by AI, uncorrected`, plus `; boundary case` for the ones that could plausibly have gone under a different label.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `health_and_nutrition` | 87 | 43.3% |
+| `racing` | 80 | 39.8% |
+| `accomplishments` | 34 | 16.9% |
+| **Total** | 201 | 100% |
 
 **Three hard cases**
 
-<!-- Any post that made you pause: what it was, which two labels it could have
-     been, and what you chose. These are worth more than the easy 190. -->
-
 **1.**
-> *The post:*
+> *The post:* "On June 8th, 2025, I took part in the 89.98K Comrades Marathon down run from Pietermaritzburg to Durban, South Africa...I completed only 56K over 7 hours 30 minutes, mostly due to poor race execution...It was humbling - my first DNF in nearly 40 years of racing - but a rich learning experience." — posted on the Racing board.
 >
-> *Could have been:*
+> *Could have been:* `racing` (it's a race report, posted where race reports go) or `accomplishments` (it's the writer reporting their own result).
 >
-> *I chose, because:*
+> *I chose, because:* `accomplishments` — this is exactly the hardest-boundary rule from the Label Taxonomy section: the writer reports their own outcome (a DNF, a distance, a time), and under the decision rule a reported personal result always wins over the fact that the post is *about* a race.
 
 **2.**
-> *The post:*
+> *The post:* "I've gotten below my 'personal fat threshold' now...from ~183 lbs to ~168 lbs." — posted on the Health and Nutrition board, in a thread about managing pre-diabetes through diet.
 >
-> *Could have been:*
+> *Could have been:* `health_and_nutrition` (it's embedded in a diet-advice thread) or `accomplishments` (it's a personal milestone).
 >
-> *I chose, because:*
+> *I chose, because:* `accomplishments` — the taxonomy's definition isn't limited to running stats; it covers any personal milestone or progress update, and a specific before/after weight number is exactly that, regardless of which board it was posted on.
 
 **3.**
-> *The post:*
+> *The post:* "If it was me, and I knew that I responded well to dry needling I would absolutely get that done the Monday before the race." — posted on the Health and Nutrition board, replying to someone with a hamstring issue ahead of a marathon.
 >
-> *Could have been:*
+> *Could have been:* `health_and_nutrition` (it's injury-recovery advice, the board's whole theme) or `racing` (the decision rule says a diet/workout/recovery tip tied to a specific upcoming race counts as `racing`).
 >
-> *I chose, because:*
+> *I chose, because:* `racing` — the advice is explicitly timed against one named race ("the Monday before the race"), which is exactly the second decision rule from the Label Taxonomy section: general advice is `health_and_nutrition`, but the same advice pinned to a specific race becomes `racing`.
 
 ---
 
@@ -145,15 +138,21 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, max length 128, seed 42.
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** Nothing — the brief says hyperparameters are vocabulary this unit, not decisions, and I had no data-specific reason to deviate from the defaults for a first run.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** 70/15/15 stratified, seed 42 — train 139, val 31, test 31.
+
+| Label | train | val | test |
+|---|---|---|---|
+| `racing` | 55 | 13 | 12 |
+| `health_and_nutrition` | 60 | 13 | 14 |
+| `accomplishments` | 24 | 5 | 5 |
+
+**`accomplishments` has only 5 examples in the test split** — well under the brief's ~8 floor. That's a direct consequence of it being my smallest label (34 of 201 posts), and it explains a lot of what shows up in the results below: its F1 came back at 0.00 on this run, which a 5-example test set makes almost unavoidable to swing on.
 
 
 
@@ -170,17 +169,17 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Candidate communities to build the classifier on, then help designing the label taxonomy once I'd picked RunningAHEAD and named my three labels (`racing`, `health_and_nutrition`, `accomplishments`).
+- *What came back:* Claude pulled real forum posts so I could see what each label would actually contain, then proposed three candidate "hardest boundary" pairs once it had read enough posts to see where the categories overlapped (e.g. a race report that's also a personal result).
+- *What I changed:* I picked `accomplishments` vs. `racing` as the hardest boundary and wrote the actual decision rule myself (results/progress always count as `accomplishments`, even about a race) — Claude's job was surfacing the candidates, not deciding which one was hardest or what the rule should be.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked Claude to collect candidate posts from RunningAHEAD and pre-label all 201 of them, rather than labelling them myself.
+- *What came back:* A full `labels.csv` with every post pre-labelled against the decision rules above, with boundary cases flagged in the `note` column.
+- *What I changed:* Nothing — I did not individually review or correct the pre-labelled rows. See the disclosure below; this is a real limitation of this submission, not a hidden one.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** All 201 rows in `labels.csv` were pre-labelled by Claude (AI) and none were corrected or cold-labelled by me. The brief's allowed workflow for AI pre-labelling requires reading and correcting every one, which I did not do here — I'm disclosing that plainly rather than mislabelling rows `cold`. Every row's `note` says `pre-labelled by AI, uncorrected`.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
