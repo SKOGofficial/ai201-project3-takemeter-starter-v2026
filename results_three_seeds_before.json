@@ -1,0 +1,824 @@
+[
+  {
+    "seed": 42,
+    "n_test": 31,
+    "accuracy": 0.6451612903225806,
+    "f1_macro": 0.46732837055417703,
+    "per_label": {
+      "racing": {
+        "precision": 0.6428571428571429,
+        "recall": 0.75,
+        "f1": 0.6923076923076923,
+        "support": 12
+      },
+      "health_and_nutrition": {
+        "precision": 0.6470588235294118,
+        "recall": 0.7857142857142857,
+        "f1": 0.7096774193548387,
+        "support": 14
+      },
+      "accomplishments": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "racing": {
+        "racing": 9,
+        "health_and_nutrition": 3,
+        "accomplishments": 0
+      },
+      "health_and_nutrition": {
+        "racing": 3,
+        "health_and_nutrition": 11,
+        "accomplishments": 0
+      },
+      "accomplishments": {
+        "racing": 2,
+        "health_and_nutrition": 3,
+        "accomplishments": 0
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.44728296995162964,
+      "mean_when_wrong": 0.41741228103637695,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.3,
+      "n_per_third": 10,
+      "frac_confidence_ge_0_7": 0.0
+    },
+    "predictions": [
+      {
+        "text": "I know! I've been meaning to blog about this damn injury, but I keep putting it off...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.43661633133888245
+      },
+      {
+        "text": "The more miles I run during training cycle, the less time I need to recover after a marathon.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.5183106064796448
+      },
+      {
+        "text": "Good luck with the race. I had a similar thing a few years back 2 weeks before a half... when I do run, do run walk intervals to keep the stress down.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.495393306016922
+      },
+      {
+        "text": "This is a soft tissue injury, and IME those don't respond well to complete rest. You need a small bit of stress on it to promote bloodflow, keep the tissue mobile, and otherwise just encourage it to heal.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4175970256328583
+      },
+      {
+        "text": "Hey good job! I had some long stretches off and almost fell off the wagon entirely but lately I'm trying to run 2-3 a day just to even start to re-condition myself @ 27.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3955060839653015
+      },
+      {
+        "text": "I'll follow along. I've been dealing with hip issues for 4 years now and just found out that I have a torn labrum this past fall...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4450274109840393
+      },
+      {
+        "text": "Based on all you've written here...yes, you should pull out now and reset your plans... Just go out for a 60min each day...walk some, run some",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4032575190067291
+      },
+      {
+        "text": "Oski, I'm not sure. In my limited experience, it seems like it would come from your body trying to protect...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4391516149044037
+      },
+      {
+        "text": "Discovered I was anemic. Iron supplements have made all the difference in my running.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4204723834991455
+      },
+      {
+        "text": "It's pretty hard to make a case that that person is unhealthy.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.44938644766807556
+      },
+      {
+        "text": "Which race is it? Temperature and hills can affect your pacing strategy. If there's a chance of it being warm...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.48874470591545105
+      },
+      {
+        "text": "I'm 66, and the half went much better than expected... The hamstring only bothered me once on the run.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4254933297634125
+      },
+      {
+        "text": "Where is the race? City street? Wide open country roads? Along a beach? As crazy as it sounds, I think it makes a bit of a difference.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4248281717300415
+      },
+      {
+        "text": "If you don't mind a 10k that is close to two loops of the same course...there's Everyone's 10k in Jersey City in late October.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.47834494709968567
+      },
+      {
+        "text": "Bottom line, don't over-think it. If you care about chip time it's not going to affect you much.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.41962796449661255
+      },
+      {
+        "text": "Unhealthy obsession. maybe. Motivated -- Determined--Driven to finish most likely.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.42967453598976135
+      },
+      {
+        "text": "This fits my bill too. I've actually found sometimes it's even worse with time off!",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.45051923394203186
+      },
+      {
+        "text": "Do you sit a lot during the day for work?",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4051331579685211
+      },
+      {
+        "text": "Some of the best runs mentally are ones you don't want to do. It helps the next day.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.40385955572128296
+      },
+      {
+        "text": "Man, five months of dealing with that would drive me nuts. And the fact that you can hit those 1K reps at your normal pace, but the easy running between them becomes painful, is definitely something I'd pay attention to. If it were me, I wouldn't keep trying to run through it or just keep throwing different creams and recovery tricks at it. Since it's been hanging around this long, I'd get the physio to reassess it and look at the whole picture with running mechanics, strength, training load, and what specifically triggers the pain. Cutting your mileage was a good move, but sometimes reducing the miles alone doesn't fix what's causing the problem. I'd rather figure that out before trying to push those race paces again.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.4285253882408142
+      },
+      {
+        "text": "congrats! me too btw, I think I hit 13miles, lol.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.41976672410964966
+      },
+      {
+        "text": "ultimately, your time is determined by your timing chip, so whenever you cross the start/finish lines. just make sure you are close to the front of your pen and remember, everyone.... everyone. starts out to fast.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4560464024543762
+      },
+      {
+        "text": "If it was me, and I knew that I responded well to dry needling I would absolutely get that done the Monday before the race.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4276897609233856
+      },
+      {
+        "text": "I managed to get in 1200 miles in 2023. The months were not evenly spaced but I got it done. The goal for 2024 is 100 miles a month.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.42174187302589417
+      },
+      {
+        "text": "This seems totally unhealthy to me. Unless they say that they 'ran' if they literally jog from their couch to the bathroom when they are ill.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.455779105424881
+      },
+      {
+        "text": "DO NOT try anything you haven't already tested...Unless you think trying that is more important than your race-goal, just wave it off",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.46863946318626404
+      },
+      {
+        "text": "This is what I use and so much more than just GREENS and way more versatile. I use as post workout. Meal or snack on go. Occasional breakfast when blended with frozen berries, banana and yogurt or almond milk",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.4142087996006012
+      },
+      {
+        "text": "I'd expect everyone in a pace group to want to draft. No one wants to lead.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.39616692066192627
+      },
+      {
+        "text": "Yeah, all of you suggesting 'draft off someone'...guaranteed to make you one annoying mf'er if you do it too long.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4400639832019806
+      },
+      {
+        "text": "Hooray for no crutches! I've seen a lot about the tendinopathy issues post-surgery...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4421387314796448
+      },
+      {
+        "text": "Today on a little 5k jog in the Santurce neighborhood of San Juan, Puerto Rico, I crossed 50,000 miles on the old RunningAhead odometer.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.41948366165161133
+      }
+    ],
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  },
+  {
+    "seed": 7,
+    "n_test": 31,
+    "accuracy": 0.7096774193548387,
+    "f1_macro": 0.5139573070607554,
+    "per_label": {
+      "racing": {
+        "precision": 0.625,
+        "recall": 0.8333333333333334,
+        "f1": 0.7142857142857143,
+        "support": 12
+      },
+      "health_and_nutrition": {
+        "precision": 0.8,
+        "recall": 0.8571428571428571,
+        "f1": 0.8275862068965517,
+        "support": 14
+      },
+      "accomplishments": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "racing": {
+        "racing": 10,
+        "health_and_nutrition": 2,
+        "accomplishments": 0
+      },
+      "health_and_nutrition": {
+        "racing": 2,
+        "health_and_nutrition": 12,
+        "accomplishments": 0
+      },
+      "accomplishments": {
+        "racing": 4,
+        "health_and_nutrition": 1,
+        "accomplishments": 0
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.4467609226703644,
+      "mean_when_wrong": 0.42016419768333435,
+      "accuracy_most_confident_third": 0.9,
+      "accuracy_least_confident_third": 0.5,
+      "n_per_third": 10,
+      "frac_confidence_ge_0_7": 0.0
+    },
+    "predictions": [
+      {
+        "text": "I'm a 51 year old male with a personal best of 3:34...This year I've been targeting a 3:40 goal - 8:24 per mile.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.4344509243965149
+      },
+      {
+        "text": "If you can avoid injuries, sub-3:00 is well within reason if my experience is at all relevant.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4114634394645691
+      },
+      {
+        "text": "I am a dabbler in running. I run 17.5 km every week/ten days... The event is 2 weeks away and I don't know if I should quit",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4173792004585266
+      },
+      {
+        "text": "don't ignore fueling as a point of failure, especially since you're getting some good weekly volume in.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4282146096229553
+      },
+      {
+        "text": "Would say overtrained,but time off should have negated that. Time for a total body work up by the docs.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4624814987182617
+      },
+      {
+        "text": "Looking at your running log, you are going in with VERY light mileage. Frankly, I wouldn't run at all for 3 weeks after the marathon with your history.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4717160761356354
+      },
+      {
+        "text": "OK, based on the seemingly significant number of us on RA suffering through or recovering from labral tears and FAI...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.45546549558639526
+      },
+      {
+        "text": "Check out what the race offers and test it out on your long runs. If you do good with it, your set.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4960968494415283
+      },
+      {
+        "text": "Even if he did run 'when he shouldn't have', apparently it didn't hurt as much as one might think.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4533328413963318
+      },
+      {
+        "text": "Oski, I'm not sure. In my limited experience, it seems like it would come from your body trying to protect...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4721910357475281
+      },
+      {
+        "text": "We recently went back into lockdown in NZ so out of need to get out of the house I increased my mileage quite a bit (from 6km 6 days a week to 8km 7 days a week) and it was probably too much too soon because I have injured my hip.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.40632912516593933
+      },
+      {
+        "text": "You are under trained for that length of race and then compounded by energy sucking situations.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.45655643939971924
+      },
+      {
+        "text": "Thanks so much Kennedy and JMac i have been concerned to run in case I make it worse...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39641711115837097
+      },
+      {
+        "text": "There are several stretches that can be done to help alleviate the pain. I've had sciatica pain off and on for years, but when I keep up my stretching regimen it does keep it at bay. I think there was another post on this that I included these stretches on - I'll try to find it. Couldnt find the post, but most of the stretches are here. For the knee to shoulder stretch, I actually pull the knee towards the opposite shoulder and then use my opposite hand to grab the ankle and extend the leg outward. Hope this helps and good luck.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4663212299346924
+      },
+      {
+        "text": "I would say go with the 3:35 group and stick with them...got me in at 3:34:13.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.3799326717853546
+      },
+      {
+        "text": "Saturday race + Sunday LR is a staple of the Pfitz marathon plan.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4575599730014801
+      },
+      {
+        "text": "Thank you for the quick reply. I was also thinking seriously of the dry needling and your logic makes sense about the risks vs potential rewards.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4382491111755371
+      },
+      {
+        "text": "You should not be doing that real long event since overall you are undertrained and not at all confident.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.44128578901290894
+      },
+      {
+        "text": "Good afternoon, I have had TFL issues in the last 5 months, this has affected my races, predominantly, HMs, 16kms 10kms, 10kms. I went to the physio and I was give some exercises which helped a bit but not enough. I have tried all sorts, Musselex cream, magnesium salt bath, the result is that I delay the pain but it is still there. I use to run 80K per week, I have decreased mileage to 60/65K max but still no joy. Just to give you an example, I use to complete a 5K Park run in 19:00/19:41 running the first 3k at 3:40/3:35, I am no longer able to do that, I can run 1K at 3:40/3:30 and then all in sudden my legs feel so weak and have to back down to 5:15/5:30 per km. What is strange is that if I do a 6x1km rep session (1:30/2 minutes rest for each rep) I can do each Km at my speed but if I have to do the same session with an active easy run after each Km, the easy run feel so painful. Has anyone had this problem and if yes how did you manage to get rid of it or at least decrease pain as much as possible. Thank you in advance for any advice.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.4337708652019501
+      },
+      {
+        "text": "The race is downtown with the buildings for about 8 miles. 3-4 miles is in a park with lots of trees but majority is going through neighborhoods.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.45176610350608826
+      },
+      {
+        "text": "I hear ya. It's tough but I don't want to just let it get worse. I am already getting some minor pain in my other hip...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.46078401803970337
+      },
+      {
+        "text": "If there are official pace groups, typically the pacers are going to be the ones out in front.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.39647623896598816
+      },
+      {
+        "text": "As far as what exercises i did, I kept it simple. Eccentric calf stretches, and lots of different lunges.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4452036917209625
+      },
+      {
+        "text": "Good job i was way under my goal in 2019",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.38628003001213074
+      },
+      {
+        "text": "If you don't mind a 10k that is close to two loops of the same course...there's Everyone's 10k in Jersey City in late October.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.45328289270401
+      },
+      {
+        "text": "Duke City marathon. Albuquerque, NM\n\nRun until the trail runs out.\n\nSCHEDULE 2016--\n\nThe pain that hurts the worse is the imagined pain. One of the most difficult arts of racing is learning to ignore the imagined pain and just live with the present pain (which is always bearable.) - Jeff",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.4564273953437805
+      },
+      {
+        "text": "This seems totally unhealthy to me. Unless they say that they 'ran' if they literally jog from their couch to the bathroom when they are ill.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4566172659397125
+      },
+      {
+        "text": "I couldn't decide which shoes that I own to wear for a road mile, so I did some 400m comparison",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.40319398045539856
+      },
+      {
+        "text": "Run streak. Current Streak: 80 days (361.2 mi). 7/23/2022 - Today. 2 mo 18 d. 1 day past my longest streak of 1 mile a day. Someone I know has 56+ years. My goal is to make it to Sunday. State marathon #50 in NM.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.44460877776145935
+      },
+      {
+        "text": "Cadence lock? I experience this on treadmill runs with a Scosche armband.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4431788921356201
+      },
+      {
+        "text": "After two years with little relief, I finally gave scraping a try. I used an old",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.43318265676498413
+      }
+    ],
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  },
+  {
+    "seed": 2024,
+    "n_test": 31,
+    "accuracy": 0.6129032258064516,
+    "f1_macro": 0.44417077175697867,
+    "per_label": {
+      "racing": {
+        "precision": 0.5625,
+        "recall": 0.75,
+        "f1": 0.6428571428571429,
+        "support": 12
+      },
+      "health_and_nutrition": {
+        "precision": 0.6666666666666666,
+        "recall": 0.7142857142857143,
+        "f1": 0.6896551724137931,
+        "support": 14
+      },
+      "accomplishments": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "racing": {
+        "racing": 9,
+        "health_and_nutrition": 3,
+        "accomplishments": 0
+      },
+      "health_and_nutrition": {
+        "racing": 4,
+        "health_and_nutrition": 10,
+        "accomplishments": 0
+      },
+      "accomplishments": {
+        "racing": 3,
+        "health_and_nutrition": 2,
+        "accomplishments": 0
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.41954728960990906,
+      "mean_when_wrong": 0.3994714915752411,
+      "accuracy_most_confident_third": 0.8,
+      "accuracy_least_confident_third": 0.2,
+      "n_per_third": 10,
+      "frac_confidence_ge_0_7": 0.0
+    },
+    "predictions": [
+      {
+        "text": "Is it better today? Don't over treat or grind on it. It wants to heal but if you over roll, over stretch etc it can prolong issue.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.41637763381004333
+      },
+      {
+        "text": "Swim. It allows the muscles to get the blood flowing with no impact. I found this better than a 'sports massage', which I've also done.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4198025166988373
+      },
+      {
+        "text": "His research has shown that diabetes is caused by fat storage in the pancreas and liver.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.42237359285354614
+      },
+      {
+        "text": "The bottom line is lose weight to get body fat stores under your personal fat threshold.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4026656448841095
+      },
+      {
+        "text": "OK, based on the seemingly significant number of us on RA suffering through or recovering from labral tears and FAI...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4118690490722656
+      },
+      {
+        "text": "I don't think I have broken 100 for 7 days before. Legs are really tired, and my LR this morning was slow, but I did see some Santas on bicycles in mile 20. That made me smile and helped me finish strong.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.4055122435092926
+      },
+      {
+        "text": "The race is Richmond, which has some rolling hills, but nothing crazy...I'm running very similar mileage as the build up to that race",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4285726249217987
+      },
+      {
+        "text": "I would say go with the 3:35 group and stick with them...got me in at 3:34:13.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.4233416020870209
+      },
+      {
+        "text": "I never had the catching sensation either, but the clicking started after a while. It wasn't painful...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4206620156764984
+      },
+      {
+        "text": "i found out early on that i need sugar gels or other stuff as i run, otherwise i run out of fuel fairly quickly",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39798346161842346
+      },
+      {
+        "text": "Would say overtrained,but time off should have negated that. Time for a total body work up by the docs.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4142550826072693
+      },
+      {
+        "text": "The Bay of Fundy International Marathon (Lubec Maine) has a 10K option which starts at West Quoddy Head lighthouse -- the easternmost point of the continental USA.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.37016773223876953
+      },
+      {
+        "text": "I like your suggestion. It agrees with a hypothesis I have had for a long time - need",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4130948781967163
+      },
+      {
+        "text": "don't ignore fueling as a point of failure, especially since you're getting some good weekly volume in.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4176665246486664
+      },
+      {
+        "text": "I used to run all the time bu the last few years different circumstances made it a little hard to run but I decided a couple of days ago I'd start running again.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.39791157841682434
+      },
+      {
+        "text": "Based on your history I would shoot for Fall as your goal. Just build your base and strength going into Spring.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.44339317083358765
+      },
+      {
+        "text": "When I had this I went to a physical therapist. Here are some of the exercises and stretches that I started doing, and continue to do so to avoid any flareups: Clamshells, If you have a therapy band, wrap it around both your ankles and sidestep several times to either side, Side leg raises, Pigeon pose...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.40154606103897095
+      },
+      {
+        "text": "Oski, I'm not sure. In my limited experience, it seems like it would come from your body trying to protect...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4083893597126007
+      },
+      {
+        "text": "Most the blogs I found were incredibly depressing! Thank you for finding one where the news is good.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4183618128299713
+      },
+      {
+        "text": "I know! I've been meaning to blog about this damn injury, but I keep putting it off...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4127361476421356
+      },
+      {
+        "text": "You are under trained for that length of race and then compounded by energy sucking situations.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4189048409461975
+      },
+      {
+        "text": "If not racing weekly and cramming in mileage can be a challenge to recover from week to week. You are not 25 years old.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4265423119068146
+      },
+      {
+        "text": "On June 8th, 2025, I took part in the 89.98K Comrades Marathon down run from Pietermaritzburg to Durban, South Africa...I completed only 56K over 7 hours 30 minutes, mostly due to poor race execution...It was humbling - my first DNF in nearly 40 years of racing - but a rich learning experience.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.366176575422287
+      },
+      {
+        "text": "Hey, I need some advice. I'm running my first Half Marathon race in a few weeks. My goal / desired time is 1hr 30 mins, but all my current training and form suggest I can do sub 1hr 30, I'm thinking around 1hr 25 is possible. However, I've been placed in a starting pen that is 1hr 45mins. I'm worried about not being able to reach my desired time from that starting pen?",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.41361814737319946
+      },
+      {
+        "text": "Doc called and said to 86 the new med, see if any impact, and if no improvement move on to echo cardiogram.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.38858190178871155
+      },
+      {
+        "text": "Which race is it? Temperature and hills can affect your pacing strategy. If there's a chance of it being warm...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.434978187084198
+      },
+      {
+        "text": "Every time I start a run, my heart rate jumps much higher than usual for the first few minutes.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.4147892892360687
+      },
+      {
+        "text": "I've been running for 55 years... This upcoming marathon is my swan song for marathons.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3914671242237091
+      },
+      {
+        "text": "I personally don't think I have an unhealthy relationship with the sport",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.40260210633277893
+      },
+      {
+        "text": "If you don't want to do the race, don't. You've already talked yourself into it being a chore you HAVE to do",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4260697662830353
+      },
+      {
+        "text": "You should not be doing that real long event since overall you are undertrained and not at all confident.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4346434772014618
+      }
+    ],
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  }
+]

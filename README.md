@@ -220,27 +220,40 @@ But `accomplishments` went the other way: 0.333 → 0.000, baseline beating trai
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Confidence coverage | ≥70% of predictions at confidence ≥0.7 | 0.0% | 0.0% | 0.0% | MISSED |
+| 2. Overall accuracy | ≥0.90 | 0.645 | 0.710 | 0.613 | MISSED |
+| 3. Edge-case accuracy | ≥0.80 on boundary-flagged posts | 0.778 (n=9) | 0.571 (n=7) | 0.400 (n=5) | MISSED |
+| 4. Every label F1 | ≥0.60 for every label | 0.000 (`accomplishments`) | 0.000 (`accomplishments`) | 0.000 (`accomplishments`) | MISSED |
+| 5. Consistency with staff | ≥70% agreement | — pending Milestone 3 — | | | |
+
+Full per-seed numbers (accuracy, macro F1, and F1 for every label):
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.645 | 0.710 | 0.613 | 0.097 |
+| Macro F1 | 0.467 | 0.514 | 0.444 | 0.070 |
+| F1 — `racing` | 0.692 | 0.714 | 0.643 | 0.071 |
+| F1 — `health_and_nutrition` | 0.710 | 0.828 | 0.690 | 0.138 |
+| F1 — `accomplishments` | 0.000 | 0.000 | 0.000 | 0.000 |
+
+Accuracy moved 0.097 across seeds — close to the 0.10 band the notebook flags as "too small/lopsided for a stable measure." Not quite over the line, but a criterion landing in that range can't be called with full confidence either way. Device: CPU (no CUDA/MPS available).
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+Seed 42:
+
+| true \ predicted | racing | health_and_nutrition | accomplishments |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **racing** | 9 | 3 | 0 |
+| **health_and_nutrition** | 3 | 11 | 0 |
+| **accomplishments** | 2 | 3 | 0 |
 
 **My biggest off-diagonal number, and what it means:**
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
+
+The model's biggest confusion is symmetric — 3 real `racing` posts were called `health_and_nutrition` and 3 real `health_and_nutrition` posts were called `racing` — which points to a genuinely hard boundary rather than a one-directional labeling bias. Separately, and more seriously: it never predicted `accomplishments` at all on this seed (0 posts landed in that column, out of 5 that should have), which is why that label's F1 is 0.000 on every seed, not just this one.
 
 
 
