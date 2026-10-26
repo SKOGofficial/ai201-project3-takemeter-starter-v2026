@@ -195,18 +195,19 @@ TakeMeter sorts posts from [RunningAHEAD](https://www.runningahead.com/forums), 
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.516 | 0.645 | +0.129 |
+| Macro F1 | 0.379 | 0.467 | +0.088 |
+| F1 — `accomplishments` | 0.333 | 0.000 | -0.333 |
+| F1 — `health_and_nutrition` | 0.651 | 0.710 | +0.059 |
+| F1 — `racing` | 0.154 | 0.692 | +0.538 |
 
-**What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+Both models scored on the same 31 held-out posts in `test_split.csv`. Baseline is `facebook/bart-large-mnli`, zero-shot, prompted only with the definitions in `label_definitions.txt`.
 
-**What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
+**What I predicted before I looked:** "I predict the trained model will beat the baseline most clearly on the `racing` vs. `health_and_nutrition` boundary, because that distinction depends on whether a post is tied to one specific race — something zero-shot can't infer from topic words alone, while fine-tuning can pick up patterns from my 139 training examples."
+
+**What the gap actually means:** The prediction was right, and more dramatically than I expected — `racing` F1 went from 0.154 to 0.692 (+0.538), the single biggest move in the table. The baseline's confusion matrix shows why: it called almost every `racing` post `health_and_nutrition` (recall 0.083), because both labels share the same topic vocabulary (training, pacing, injuries) and the deciding factor — *is this tied to one specific race* — isn't a topic at all, so a model with no training examples has no way to find it. Fine-tuning gave the model 55 labelled `racing` examples to learn that distinction from, and it clearly did.
+
+But `accomplishments` went the other way: 0.333 → 0.000, baseline beating trained. This is my smallest label (34 of 201 posts, only 5 in this test split), and it's a real finding, not noise — with just ~24 training examples, fine-tuning couldn't learn the `accomplishments` boundary at all on this split, while the zero-shot baseline's general world-knowledge of "someone announcing a personal milestone" still got 1 of 5 right by matching the definition's language directly. Fine-tuning on too little data didn't just fail to help here, it actively lost ground a zero-shot prompt held onto. That's worth carrying into the diagnosis in Milestone 4.
 
 
 
