@@ -321,25 +321,49 @@ So the honest claim is: **I matched staff on every post I labelled, under a proc
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** Added 30 real `accomplishments` posts, collected myself from RunningAHEAD's public "Look What I Can Do!" board and labelled individually against the taxonomy in *Label Taxonomy* (not batch-delegated the way the original 201 were — each post's `note` column in `labels.csv` says so, and flags the ~27% that are boundary cases, matching the original dataset's own boundary rate). `accomplishments` goes from 34 of 201 rows (17%) to 64 of 231 (28%) — still the smallest label, but no longer starved. Nothing else changed: same taxonomy, same three criteria wording, same hyperparameters (3 epochs, lr 2e-5, batch 16, `distilbert-base-uncased`), same three seeds.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Milestone 4, diagnosis #4 — `accomplishments` F1 was 0.000 on every one of the three seeds, and the confusion matrices showed the model predicting that label *zero times in total* across all three runs. Confusion only flowed one direction (into `racing`/`health_and_nutrition`, never back), which the diagnosis read as a volume problem rather than an inconsistent boundary — "too few examples for a label" is exactly the fix `criteria.md`'s own Milestone 5 guidance names for that cause.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Confidence coverage | ≥70% of predictions at confidence ≥0.7 | 0.0% | 0.0% | 0.0% | MISSED |
+| 2. Overall accuracy | ≥0.90 | 0.714 | 0.771 | 0.771 | MISSED |
+| 3. Edge-case accuracy | ≥0.80 on boundary-flagged posts | 0.583 (n=12) | 0.667 (n=6) | 0.667 (n=12) | MISSED |
+| 4. Every label F1 | ≥0.60 for every label | 0.667 (`health_and_nutrition`, lowest) | 0.588 (`racing`, lowest) | 0.714 (`racing`, lowest) | MISSED |
+| 5. Consistency with staff | ≥70% agreement | 100% (30/30, unchanged — fixed set, not re-run) | — | — | MET |
 
-**Did it help, and how do I know:**
+Full per-seed numbers:
 
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.714 | 0.771 | 0.771 | 0.057 |
+| Macro F1 | 0.714 | 0.748 | 0.775 | 0.061 |
+| F1 — `racing` | 0.769 | 0.588 | 0.714 | 0.181 |
+| F1 — `health_and_nutrition` | 0.667 | 0.857 | 0.833 | 0.190 |
+| F1 — `accomplishments` | 0.706 | 0.800 | 0.778 | 0.094 |
 
+Seed 42 confusion matrix (after):
+
+| true \ predicted | racing | health_and_nutrition | accomplishments |
+|---|---|---|---|
+| **racing** | 10 | 2 | 0 |
+| **health_and_nutrition** | 3 | 9 | 1 |
+| **accomplishments** | 1 | 3 | 6 |
+
+Compare to the Before matrix: `accomplishments` predicted 6 times here, correctly 6 of those 6 — versus 0 predictions of that label across all three before-runs combined.
+
+**Did it help, and how do I know:** Yes, on exactly the thing it was meant to fix, and no, on flipping any criterion's verdict.
+
+- `accomplishments` F1 went from **0.000 on every seed** to **0.706 / 0.800 / 0.778** — the model now predicts and gets that label right, which it never did before (0 predictions of `accomplishments` in any of the three before-matrices; 6, 10, and 7 correct predictions of it in the three after-matrices). This is the clean win and it's a direct, mechanical confirmation of the Milestone 4 diagnosis: giving the thinnest label more training rows made the model start using it.
+- Overall accuracy improved on every seed (0.645→0.714, 0.710→0.771, 0.613→0.771) and got more consistent (spread 0.097→0.057). Macro F1 improved even more (0.467→0.714, 0.514→0.748, 0.444→0.775) — macro-averaging means fixing the worst label moves this metric the most, and it shows.
+- But criterion 4 ("every label F1 ≥0.60") is **still MISSED**, just not for the reason it was before. Adding `accomplishments` rows apparently came at a small cost to `racing`: on seed 7, `racing` F1 dropped to 0.588 (precision 1.0, recall 0.417 — the model got conservative and called several real `racing` posts `accomplishments` instead, confusion matrix: 4 of 12 true `racing` posts went to `accomplishments` on that seed). That's a much smaller, much narrower miss than a flat 0.000 across the board, but it's still a miss, and I'm reporting it as one rather than rounding a near-hit up.
+- Criterion 3 (edge-case accuracy) moved in a mixed, noisy way (0.778/0.571/0.400 → 0.583/0.667/0.667) — average ticked up slightly (0.583→0.639) but it's nowhere near ≥0.80 and the boundary-case counts per seed (n=12, 6, 12) are still too small to read much into the direction.
+- Criterion 1 (confidence coverage) didn't move at all — still 0.0% on every seed, consistent with the Milestone 4 diagnosis that this is a scale problem with a small fine-tune's softmax outputs, not something more training rows for one label would touch.
+
+So: a real, measurable fix for the specific failure the diagnosis named, visible in both the headline metric and the raw confusion counts — but not a fix for the unit's acceptance criteria as written, since criterion 4 demands every label clear 0.60 on every seed and a different label now dips under it on one seed. I'm not revising criterion 4 to make this look better; a 0.588 on `racing` is a genuine (if much smaller) miss.
 
 
 ---

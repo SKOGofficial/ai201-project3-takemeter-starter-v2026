@@ -1,0 +1,908 @@
+[
+  {
+    "seed": 42,
+    "n_test": 35,
+    "accuracy": 0.7142857142857143,
+    "f1_macro": 0.7139265962795375,
+    "per_label": {
+      "racing": {
+        "precision": 0.7142857142857143,
+        "recall": 0.8333333333333334,
+        "f1": 0.7692307692307693,
+        "support": 12
+      },
+      "health_and_nutrition": {
+        "precision": 0.6428571428571429,
+        "recall": 0.6923076923076923,
+        "f1": 0.6666666666666666,
+        "support": 13
+      },
+      "accomplishments": {
+        "precision": 0.8571428571428571,
+        "recall": 0.6,
+        "f1": 0.7058823529411765,
+        "support": 10
+      }
+    },
+    "confusion": {
+      "racing": {
+        "racing": 10,
+        "health_and_nutrition": 2,
+        "accomplishments": 0
+      },
+      "health_and_nutrition": {
+        "racing": 3,
+        "health_and_nutrition": 9,
+        "accomplishments": 1
+      },
+      "accomplishments": {
+        "racing": 1,
+        "health_and_nutrition": 3,
+        "accomplishments": 6
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.40608078241348267,
+      "mean_when_wrong": 0.3873001039028168,
+      "accuracy_most_confident_third": 0.9090909090909091,
+      "accuracy_least_confident_third": 0.45454545454545453,
+      "n_per_third": 11,
+      "frac_confidence_ge_0_7": 0.0
+    },
+    "predictions": [
+      {
+        "text": "I did a 5k in May and doing another this weekend, four weeks later. Last time I didn't do a long run that weekend, so I've had 3 total since my last race. Last weekend I ran 9 instead of 10 miles and am doing about 20% fewer overall miles this week. If I were to do monthly 5ks it seems my volume of training would take a hit, unless I didn't taper at all and also did some kind of long run even 1-2 days after the race. For recreational runners, how frequent is too frequent for 5ks?",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.3927110433578491
+      },
+      {
+        "text": "If you can avoid injuries, sub-3:00 is well within reason if my experience is at all relevant.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.41322842240333557
+      },
+      {
+        "text": "I've been dealing with a chronic low grade on again, off again hamstring issue for the last 16 weeks... This morning after my run it has returned with a bit more tenacity, aching like a toothache deep in the belly of my hamstring and continuing on most of the day.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3908606469631195
+      },
+      {
+        "text": "Most the blogs I found were incredibly depressing! Thank you for finding one where the news is good.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3787943422794342
+      },
+      {
+        "text": "Not unhealthy. What stopped my 117 day streak was a vacation to Spain.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.36722424626350403
+      },
+      {
+        "text": "Based on your history I would shoot for Fall as your goal. Just build your base and strength going into Spring.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4156182110309601
+      },
+      {
+        "text": "Psychologically, it's actually a very easy case...someone who has a 56 year running streak...is not well.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39199432730674744
+      },
+      {
+        "text": "It worked miracles on my right foot PF. It hasn't done much with my left foot PF.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.42018353939056396
+      },
+      {
+        "text": "wondering if any long time runners have experienced an issue where performance has dramatically nose-dived suddenly?",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.37951257824897766
+      },
+      {
+        "text": "Treat most of them as hard tempo runs and only taper for 2-3 races a year.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4283566176891327
+      },
+      {
+        "text": "22:02 yay! 49 years old. would love to see that start with a 21! Marathon PR: 3:44 (2000). 5k PR: 21:17 (2024).",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.44043219089508057
+      },
+      {
+        "text": "Stay relaxed and don't try to force the pace into the wind. Draft if you can.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.40116673707962036
+      },
+      {
+        "text": "I ran my fastest marathon time in 3:54...About two years ago I noticed strange fatigue...Finally, in May of this year, I went to a holistic doctor...On Saturday I ran in a 5 mile race and came in 2nd in my division. I have my health back and I'm running again.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated; boundary case",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4265982210636139
+      },
+      {
+        "text": "In early July 2013, I ran a 5k without issues and sat down afterwards to rest. When I went to stand up, my entire right hip was frozen...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "accomplishments",
+        "confidence": 0.37403926253318787
+      },
+      {
+        "text": "Hey, I need some advice. I'm running my first Half Marathon race in a few weeks. My goal / desired time is 1hr 30 mins, but all my current training and form suggest I can do sub 1hr 30, I'm thinking around 1hr 25 is possible. However, I've been placed in a starting pen that is 1hr 45mins. I'm worried about not being able to reach my desired time from that starting pen?",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.3922809362411499
+      },
+      {
+        "text": "It was cold today...Oct. 26: 22:44. Dec. 7: 21:43. But seriously, I owe a lot of that to all the great information on this forum.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.34288763999938965
+      },
+      {
+        "text": "I'm 66, and the half went much better than expected... The hamstring only bothered me once on the run.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39369213581085205
+      },
+      {
+        "text": "I managed to get in 1200 miles in 2023. The months were not evenly spaced but I got it done. The goal for 2024 is 100 miles a month.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.37628623843193054
+      },
+      {
+        "text": "i found out early on that i need sugar gels or other stuff as i run, otherwise i run out of fuel fairly quickly",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3625032305717468
+      },
+      {
+        "text": "What is the time limit for the 70k? Taper for 3 weeks after Berlin. Run the 70k at a pace about 60+ minutes from the race cut-off limit.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4477650225162506
+      },
+      {
+        "text": "I personally don't think I have an unhealthy relationship with the sport",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3854118883609772
+      },
+      {
+        "text": "Hey good job! I had some long stretches off and almost fell off the wagon entirely but lately I'm trying to run 2-3 a day just to even start to re-condition myself @ 27.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.3662968873977661
+      },
+      {
+        "text": "Good afternoon, I have had TFL issues in the last 5 months, this has affected my races, predominantly, HMs, 16kms 10kms, 10kms. I went to the physio and I was give some exercises which helped a bit but not enough. I have tried all sorts, Musselex cream, magnesium salt bath, the result is that I delay the pain but it is still there. I use to run 80K per week, I have decreased mileage to 60/65K max but still no joy. Just to give you an example, I use to complete a 5K Park run in 19:00/19:41 running the first 3k at 3:40/3:35, I am no longer able to do that, I can run 1K at 3:40/3:30 and then all in sudden my legs feel so weak and have to back down to 5:15/5:30 per km. What is strange is that if I do a 6x1km rep session (1:30/2 minutes rest for each rep) I can do each Km at my speed but if I have to do the same session with an active easy run after each Km, the easy run feel so painful. Has anyone had this problem and if yes how did you manage to get rid of it or at least decrease pain as much as possible. Thank you in advance for any advice.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.3963925540447235
+      },
+      {
+        "text": "After two years with little relief, I finally gave scraping a try. I used an old",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.43472832441329956
+      },
+      {
+        "text": "Heartland / NE / Sept----Duky City / NM / Oct",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.34978702664375305
+      },
+      {
+        "text": "This could be serious, so doctor visit ASAP.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.450300008058548
+      },
+      {
+        "text": "Check out what the race offers and test it out on your long runs. If you do good with it, your set.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.47336214780807495
+      },
+      {
+        "text": "It's likely you'll have as many miles with tailwind as headwind.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3834570050239563
+      },
+      {
+        "text": "The more miles I run during training cycle, the less time I need to recover after a marathon.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.42471396923065186
+      },
+      {
+        "text": "Duke City marathon. Albuquerque, NM\n\nRun until the trail runs out.\n\nSCHEDULE 2016--\n\nThe pain that hurts the worse is the imagined pain. One of the most difficult arts of racing is learning to ignore the imagined pain and just live with the present pain (which is always bearable.) - Jeff",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.4086356461048126
+      },
+      {
+        "text": "According to your log, you have not run more than 800 miles in a year. In December you logged 85 miles. The 10% rule may not apply to you but going from 50 miles a month to 168 miles (2024) a month is asking for an injury. The goals for your first marathon should be to make it to the starting line injury-free and to finish the marathon standing. Wishing you the best with your training.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.4646567404270172
+      },
+      {
+        "text": "Nobody avoids that for decades. Otherwise yes the idea of running every day is healthy.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39009571075439453
+      },
+      {
+        "text": "Monday I finished One Hour Runner (again)! My goal for the past weeks/months has been attained!...I ran an hour without stopping!",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4126405715942383
+      },
+      {
+        "text": "This is what I use and so much more than just GREENS and way more versatile. I use as post workout. Meal or snack on go. Occasional breakfast when blended with frozen berries, banana and yogurt or almond milk",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.38683077692985535
+      },
+      {
+        "text": "Where is the race? City street? Wide open country roads? Along a beach? As crazy as it sounds, I think it makes a bit of a difference.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.361576110124588
+      }
+    ],
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  },
+  {
+    "seed": 7,
+    "n_test": 35,
+    "accuracy": 0.7714285714285715,
+    "f1_macro": 0.7484593837535014,
+    "per_label": {
+      "racing": {
+        "precision": 1.0,
+        "recall": 0.4166666666666667,
+        "f1": 0.5882352941176471,
+        "support": 12
+      },
+      "health_and_nutrition": {
+        "precision": 0.8,
+        "recall": 0.9230769230769231,
+        "f1": 0.8571428571428571,
+        "support": 13
+      },
+      "accomplishments": {
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1": 0.8,
+        "support": 10
+      }
+    },
+    "confusion": {
+      "racing": {
+        "racing": 5,
+        "health_and_nutrition": 3,
+        "accomplishments": 4
+      },
+      "health_and_nutrition": {
+        "racing": 0,
+        "health_and_nutrition": 12,
+        "accomplishments": 1
+      },
+      "accomplishments": {
+        "racing": 0,
+        "health_and_nutrition": 0,
+        "accomplishments": 10
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.41559329628944397,
+      "mean_when_wrong": 0.3914780020713806,
+      "accuracy_most_confident_third": 0.9090909090909091,
+      "accuracy_least_confident_third": 0.6363636363636364,
+      "n_per_third": 11,
+      "frac_confidence_ge_0_7": 0.0
+    },
+    "predictions": [
+      {
+        "text": "I think your previous experience indicates a sub 3:00, IF you can train consistently. I think consistency will be key for you.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.37795066833496094
+      },
+      {
+        "text": "I think you could run an ultra 3 weeks after a marathon, but I'd hesitate to recommend it if the marathon is going to be a full hard effort.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.38329124450683594
+      },
+      {
+        "text": "High Fiber is the only thing that worked for me.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4206736087799072
+      },
+      {
+        "text": "On paper it looks like a good idea, since the plantar heals 'long' in dorsiflexion",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4212746024131775
+      },
+      {
+        "text": "Hey good job! I had some long stretches off and almost fell off the wagon entirely but lately I'm trying to run 2-3 a day just to even start to re-condition myself @ 27.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.3992079496383667
+      },
+      {
+        "text": "Would say overtrained,but time off should have negated that. Time for a total body work up by the docs.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.42025595903396606
+      },
+      {
+        "text": "Man, five months of dealing with that would drive me nuts. And the fact that you can hit those 1K reps at your normal pace, but the easy running between them becomes painful, is definitely something I'd pay attention to. If it were me, I wouldn't keep trying to run through it or just keep throwing different creams and recovery tricks at it. Since it's been hanging around this long, I'd get the physio to reassess it and look at the whole picture with running mechanics, strength, training load, and what specifically triggers the pain. Cutting your mileage was a good move, but sometimes reducing the miles alone doesn't fix what's causing the problem. I'd rather figure that out before trying to push those race paces again.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3886624872684479
+      },
+      {
+        "text": "Run streak. Current Streak: 80 days (361.2 mi). 7/23/2022 - Today. 2 mo 18 d. 1 day past my longest streak of 1 mile a day. Someone I know has 56+ years. My goal is to make it to Sunday. State marathon #50 in NM.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.46156784892082214
+      },
+      {
+        "text": "We recently went back into lockdown in NZ so out of need to get out of the house I increased my mileage quite a bit (from 6km 6 days a week to 8km 7 days a week) and it was probably too much too soon because I have injured my hip.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "accomplishments",
+        "confidence": 0.4148683547973633
+      },
+      {
+        "text": "I'm a 51 year old male with a personal best of 3:34...This year I've been targeting a 3:40 goal - 8:24 per mile.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4745296537876129
+      },
+      {
+        "text": "What is the time limit for the 70k? Taper for 3 weeks after Berlin. Run the 70k at a pace about 60+ minutes from the race cut-off limit.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "accomplishments",
+        "confidence": 0.39637142419815063
+      },
+      {
+        "text": "So downtown, youo may get some protection from the buildings. For cross winds, I'd try to get to the side of the road where the wind is coming from.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3850376009941101
+      },
+      {
+        "text": "Good job i was way under my goal in 2019",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.3517155945301056
+      },
+      {
+        "text": "Another option is no fuel. Just eat something good two hours pre race/run and go for it.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.3976852595806122
+      },
+      {
+        "text": "His research has shown that diabetes is caused by fat storage in the pancreas and liver.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4345794916152954
+      },
+      {
+        "text": "I would say go with the 3:35 group and stick with them...got me in at 3:34:13.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4504447281360626
+      },
+      {
+        "text": "I'll follow along. I've been dealing with hip issues for 4 years now and just found out that I have a torn labrum this past fall...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.38774117827415466
+      },
+      {
+        "text": "I started running last August and finally hit 1,000 miles yesterday morning. I guess 1,000 miles in less then 11 months isn't too bad.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4259960353374481
+      },
+      {
+        "text": "If you can avoid injuries, sub-3:00 is well within reason if my experience is at all relevant.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.37622523307800293
+      },
+      {
+        "text": "Hit a 6:14 mile, which is my fastest yet...Also, hit sub-30 for 'Murph,' clocking in at 29:14...helping improve my mile time from 8:30 to 6:14.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.48700881004333496
+      },
+      {
+        "text": "I have not run a 5k since February 2019. My knees do not like speed. The Marathon race predictor said I should be able to go under 34 minutes. I ran most of the course on Thursday in 38 minutes. I set my goal to go under 35. Finished in 29:09. My Garmin had the course at 3 miles even. Heartland Marathon in NE September 25th for state number 49. The time limit is 6 hours. Race predictor has me at 5:15 but it is all concrete just hoping the knees hold up. The goal is 5:45:00. 3rd AG today. Six runners in my age group. I finally wasn't last.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4526515007019043
+      },
+      {
+        "text": "ultimately, your time is determined by your timing chip, so whenever you cross the start/finish lines. just make sure you are close to the front of your pen and remember, everyone.... everyone. starts out to fast.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.37067127227783203
+      },
+      {
+        "text": "I am a dabbler in running. I run 17.5 km every week/ten days... The event is 2 weeks away and I don't know if I should quit",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "accomplishments",
+        "confidence": 0.4509585201740265
+      },
+      {
+        "text": "The race is Richmond, which has some rolling hills, but nothing crazy...I'm running very similar mileage as the build up to that race",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "accomplishments",
+        "confidence": 0.4031534790992737
+      },
+      {
+        "text": "As far as what exercises i did, I kept it simple. Eccentric calf stretches, and lots of different lunges.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3861277103424072
+      },
+      {
+        "text": "I never had the catching sensation either, but the clicking started after a while. It wasn't painful...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.42686450481414795
+      },
+      {
+        "text": "If it was me, and I knew that I responded well to dry needling I would absolutely get that done the Monday before the race.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "accomplishments",
+        "confidence": 0.34806206822395325
+      },
+      {
+        "text": "I haven't been afflicted with PF, but just started trying out my new impact massager",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39451485872268677
+      },
+      {
+        "text": "Exercise in general does lower insulin resistance...in one study it was twice as effective as metformin.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.42373520135879517
+      },
+      {
+        "text": "It took a while to get ratified, but it is official now...I hold the US AG record for 50K road race. I count this as one of my biggest accomplishments in running. I prepared for over a year for this and it took 2 tries.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.44355377554893494
+      },
+      {
+        "text": "I managed to get in 1200 miles in 2023. The months were not evenly spaced but I got it done. The goal for 2024 is 100 miles a month.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.39842817187309265
+      },
+      {
+        "text": "I dealt with it for over a year, had PT, which did fix it, but the day I started running",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.37685710191726685
+      },
+      {
+        "text": "Check out what the race offers and test it out on your long runs. If you do good with it, your set.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4287600815296173
+      },
+      {
+        "text": "I doubt that Achilles pain is directly related to the PF. It may indicate that you need",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.43626999855041504
+      },
+      {
+        "text": "To me, it sounds like an injury risk. After I've raced a marathon hard, it's usually about a month of recovery before I'm feeling normal again.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.357147216796875
+      }
+    ],
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  },
+  {
+    "seed": 2024,
+    "n_test": 35,
+    "accuracy": 0.7714285714285715,
+    "f1_macro": 0.7751322751322752,
+    "per_label": {
+      "racing": {
+        "precision": 0.625,
+        "recall": 0.8333333333333334,
+        "f1": 0.7142857142857143,
+        "support": 12
+      },
+      "health_and_nutrition": {
+        "precision": 0.9090909090909091,
+        "recall": 0.7692307692307693,
+        "f1": 0.8333333333333334,
+        "support": 13
+      },
+      "accomplishments": {
+        "precision": 0.875,
+        "recall": 0.7,
+        "f1": 0.7777777777777778,
+        "support": 10
+      }
+    },
+    "confusion": {
+      "racing": {
+        "racing": 10,
+        "health_and_nutrition": 1,
+        "accomplishments": 1
+      },
+      "health_and_nutrition": {
+        "racing": 3,
+        "health_and_nutrition": 10,
+        "accomplishments": 0
+      },
+      "accomplishments": {
+        "racing": 3,
+        "health_and_nutrition": 0,
+        "accomplishments": 7
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.40056827664375305,
+      "mean_when_wrong": 0.395403116941452,
+      "accuracy_most_confident_third": 0.8181818181818182,
+      "accuracy_least_confident_third": 0.7272727272727273,
+      "n_per_third": 11,
+      "frac_confidence_ge_0_7": 0.0
+    },
+    "predictions": [
+      {
+        "text": "According to your log, you have not run more than 800 miles in a year. In December you logged 85 miles. The 10% rule may not apply to you but going from 50 miles a month to 168 miles (2024) a month is asking for an injury. The goals for your first marathon should be to make it to the starting line injury-free and to finish the marathon standing. Wishing you the best with your training.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.46265101432800293
+      },
+      {
+        "text": "Vinegar may help. I linked to a research study.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4496544599533081
+      },
+      {
+        "text": "Good to hear about the progress Mandy! Keep posting! BTW, I also never have any clicking or catching...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3561190366744995
+      },
+      {
+        "text": "Psychologically, it's actually a very easy case...someone who has a 56 year running streak...is not well.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.36586877703666687
+      },
+      {
+        "text": "I used to run all the time bu the last few years different circumstances made it a little hard to run but I decided a couple of days ago I'd start running again.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.3821021616458893
+      },
+      {
+        "text": "Where is the race? City street? Wide open country roads? Along a beach? As crazy as it sounds, I think it makes a bit of a difference.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39496150612831116
+      },
+      {
+        "text": "I'm thinking of incorporating one of the many green superfood powders into my nutrition plan. But which one? Really a bewildering array of ingredients to sort through. I'd be interested in the opinion of my fellow runners who may be using them. Thanks",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.36706215143203735
+      },
+      {
+        "text": "I don't think I have broken 100 for 7 days before. Legs are really tired, and my LR this morning was slow, but I did see some Santas on bicycles in mile 20. That made me smile and helped me finish strong.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.36637791991233826
+      },
+      {
+        "text": "Seeking advice. I'm a relatively experienced runner at the end of my training cycle for a marathon in < 2 weeks. Last Saturday was a taper run at target M pace (13.5 miles)...",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "accomplishments",
+        "confidence": 0.3951694369316101
+      },
+      {
+        "text": "I like your suggestion. It agrees with a hypothesis I have had for a long time - need",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4003380239009857
+      },
+      {
+        "text": "It was a great race for me...Today, the course marked 3.03 miles. I finished in 18:50...a 21 second PR for me...3rd overall, 2nd of men, 1st in 19-29 age group.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated; boundary case",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4437776803970337
+      },
+      {
+        "text": "Testing various options during your long runs is necessary to see what your stomach can tolerate...usually to eat something every 45 minutes",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.390088826417923
+      },
+      {
+        "text": "I couldn't decide which shoes that I own to wear for a road mile, so I did some 400m comparison",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.3843342661857605
+      },
+      {
+        "text": "Good afternoon, I have had TFL issues in the last 5 months, this has affected my races, predominantly, HMs, 16kms 10kms, 10kms. I went to the physio and I was give some exercises which helped a bit but not enough. I have tried all sorts, Musselex cream, magnesium salt bath, the result is that I delay the pain but it is still there. I use to run 80K per week, I have decreased mileage to 60/65K max but still no joy. Just to give you an example, I use to complete a 5K Park run in 19:00/19:41 running the first 3k at 3:40/3:35, I am no longer able to do that, I can run 1K at 3:40/3:30 and then all in sudden my legs feel so weak and have to back down to 5:15/5:30 per km. What is strange is that if I do a 6x1km rep session (1:30/2 minutes rest for each rep) I can do each Km at my speed but if I have to do the same session with an active easy run after each Km, the easy run feel so painful. Has anyone had this problem and if yes how did you manage to get rid of it or at least decrease pain as much as possible. Thank you in advance for any advice.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.41026467084884644
+      },
+      {
+        "text": "On paper it looks like a good idea, since the plantar heals 'long' in dorsiflexion",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.39438965916633606
+      },
+      {
+        "text": "If there are official pace groups, typically the pacers are going to be the ones out in front.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.43527135252952576
+      },
+      {
+        "text": "I'm very partial to the Freeze for Food in Madison, WI...It's limited to 300 people between 5k and 10k, but they don't start at the same time; it's possible to do both!",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.39024361968040466
+      },
+      {
+        "text": "I finished the 26.2 miles! It got rough at miles 15-20 with lots of walking breaks. No signs of injury so far.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.40098005533218384
+      },
+      {
+        "text": "I've been running for 55 years... This upcoming marathon is my swan song for marathons.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "accomplishments",
+        "predicted": "racing",
+        "confidence": 0.34792089462280273
+      },
+      {
+        "text": "A negative split give you your best time. Pace with this in mind. Early miles should feel easy",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4810052812099457
+      },
+      {
+        "text": "I used a McMillan recovery plan as a guide. Looking at my log, I am not sure what I was thinking because it looks like I jumped into workouts in the 3rd week.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.3514009714126587
+      },
+      {
+        "text": "On June 8th, 2025, I took part in the 89.98K Comrades Marathon down run from Pietermaritzburg to Durban, South Africa...I completed only 56K over 7 hours 30 minutes, mostly due to poor race execution...It was humbling - my first DNF in nearly 40 years of racing - but a rich learning experience.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4196646511554718
+      },
+      {
+        "text": "Every time I start a run, my heart rate jumps much higher than usual for the first few minutes.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "racing",
+        "confidence": 0.4037773907184601
+      },
+      {
+        "text": "Saturday race + Sunday LR is a staple of the Pfitz marathon plan.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.36724889278411865
+      },
+      {
+        "text": "Most the blogs I found were incredibly depressing! Thank you for finding one where the news is good.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.4042013883590698
+      },
+      {
+        "text": "There was a period of time last year where I couldn't do over 4 miles...Now I be getting up at 3 AM and doing 6.1 miles before work...It's part of my master plan to run my first full marathon in fall this year and somehow reach a total of 2,024 miles this year.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated; boundary case",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.38719502091407776
+      },
+      {
+        "text": "He definitely went walking when he should not have. He did a mile after having a mild heart attack.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.34480154514312744
+      },
+      {
+        "text": "don't ignore fueling as a point of failure, especially since you're getting some good weekly volume in.",
+        "note": "pre-labelled by AI, uncorrected; boundary case",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4179353713989258
+      },
+      {
+        "text": "I have the Nike Streakfly and Vaporfly 2. I think I'm going to stick with the Vaporfly 2 for 5K's and above",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.3684324324131012
+      },
+      {
+        "text": "Started running from nothing in November 2007. First half marathon February 2009. First Marathon February 2010. First Ultra...April 2010. Second Ultra...May 2010.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.39657363295555115
+      },
+      {
+        "text": "Something that a few years back I would have never even dreamed of, but I crossed the 10,000 miles run mark this weekend. Started logging my mileage in 2011 at age 42...I've now logged 10,015 miles!",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.4296485185623169
+      },
+      {
+        "text": "If you don't mind a 10k that is close to two loops of the same course...there's Everyone's 10k in Jersey City in late October.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "racing",
+        "predicted": "racing",
+        "confidence": 0.4531092047691345
+      },
+      {
+        "text": "Activity is good to encourage healing but do nothing to irritate it. I would not do static stretching but more dynamic movements.",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.40652504563331604
+      },
+      {
+        "text": "OK, based on the seemingly significant number of us on RA suffering through or recovering from labral tears and FAI...",
+        "note": "pre-labelled by AI, uncorrected",
+        "gold": "health_and_nutrition",
+        "predicted": "health_and_nutrition",
+        "confidence": 0.3987475633621216
+      },
+      {
+        "text": "I started logging miles on RunningAhead on January 1, 2008. Since then I have logged 9,778 miles...completing 31 marathons and 35 half-marathons.",
+        "note": "Milestone 5 improvement: collected from RunningAHEAD's 'Look What I Can Do!' board, labelled individually by Claude against the Label Taxonomy, not batch-delegated",
+        "gold": "accomplishments",
+        "predicted": "accomplishments",
+        "confidence": 0.41072794795036316
+      }
+    ],
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  }
+]
