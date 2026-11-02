@@ -271,24 +271,27 @@ The model's biggest confusion is symmetric — 3 real `racing` posts were called
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Confidence coverage | ≥70% of predictions at confidence ≥0.7 | MISSED | `frac_confidence_ge_0_7` is 0.0 on all three seeds (`results_three_seeds_before.json`) — not one prediction, right or wrong, ever crossed 0.7. |
+| 2 | Overall accuracy | ≥0.90 | MISSED | 0.645 / 0.710 / 0.613 across seeds — every seed misses by 0.19–0.29. Not a near-miss that got unlucky on one split; all three land well short. |
+| 3 | Edge-case accuracy | ≥0.80 on boundary-flagged posts | MISSED | 0.778 (n=9) / 0.571 (n=7) / 0.400 (n=5) — only seed 42 gets close, and it still misses. The target has to hold on all three; it doesn't hold on any. |
+| 4 | Every label F1 | ≥0.60 for every label | MISSED | `accomplishments` F1 = 0.000 on every seed — the model predicted that label zero times, in any of the three confusion matrices. |
+| 5 | Consistency with staff | ≥70% agreement | MET | 30/30 = 100%, comfortably over target. See the Agreement Report's caveat on why I don't take the number at full face value. |
 
 **Diagnoses**
 
-<!-- For each miss: the cause, and how you know. The four common causes are:
-     too few examples for a label, a boundary you applied inconsistently, a
-     genuinely hard label pair, and a task the model can't reach from this
-     much data.
+**1. Confidence coverage — task not reachable at this scale, criterion calibrated against the wrong range.**
+`results_three_seeds_before.json`'s `confidence` block shows `frac_confidence_ge_0_7 = 0.0` on every seed, and `mean_when_right` (0.42–0.45) sits barely above `mean_when_wrong` (0.40–0.42) — on its face, a 2–3 point gap that looks like the model has no idea which of its own predictions to trust. But the same block's `accuracy_most_confident_third` vs. `accuracy_least_confident_third` tells a different story: 1.0 vs. 0.3 (seed 42), 0.9 vs. 0.5 (seed 7), 0.8 vs. 0.2 (seed 2024). The model's confidence *ranking* is strongly informative — it's just compressed into a narrow band (roughly 0.3–0.6) that never reaches 0.7. A 3-epoch fine-tune on 139 examples doesn't produce the sharp, over-confident softmax outputs this criterion implicitly assumed; it produces a model that's relatively more or less sure, never absolutely sure. I'm not revising this criterion — it was measurable, and 0.0% is a real answer — but the result says more about what to expect from a small fine-tune than about whether the model can tell its own good guesses from its bad ones, which the tertile split says it can.
 
-     ⚠️ Use your agreement report as evidence. It is the only instrument you
-     have that can tell a LABELLING problem from a MODEL problem, and this
-     section is graded on whether you used it that way. -->
+**2. Overall accuracy — task not reachable from this much data.**
+0.645 / 0.710 / 0.613 — consistently 19–29 points under target, not one bad split dragging down two good ones. I named 0.90 deliberately ambitious in `criteria.md`, benchmarked against the staff note that two humans applying a written rule agree "in the 70s." A model trained on 139 examples landing in the 60s–70s is in the same range as the human benchmark I measured it against — which suggests 0.90 was out of reach for this amount of data, not that the model or the labels were tuned wrong.
 
+**3. Edge-case accuracy — a genuinely hard label pair, amplified by a shrinking test subset.**
+0.778 (n=9) → 0.571 (n=7) → 0.400 (n=5): the score falls as the edge-case subsample shrinks, exactly the jumpiness `criteria.md` itself warned about for small subsets ("a target for that label should be looser"). These posts are, by construction, the ones sitting on my hardest boundaries (`accomplishments` vs. `racing`, and `racing` vs. `health_and_nutrition`), so a lower score here was expected going in — a target of 0.80 didn't leave room for both that difficulty and a sub-10-example test subset on two of the three seeds.
 
+**4. Every label F1 — too few training examples for `accomplishments`.**
+`accomplishments` F1 = 0.000 on all three seeds, and the confusion matrices show why: the model predicted `accomplishments` **zero times in total**, across all three runs — every matrix's `accomplishments` column sums to 0. This isn't a boundary the model gets wrong sometimes; it's a label the model never produces at all, full collapse of the minority class. `accomplishments` has only 24 of 139 training rows (17%), well under `racing`'s 55 and `health_and_nutrition`'s 60 (see *The Training Run*).
+
+I checked whether this is a labelling-consistency problem rather than a data-volume one, since separating those two is exactly what the agreement report is for — but this unit's check came back with zero disagreements (see *Agreement Report*), so it has nothing to point at directly for this label, and the staff taxonomy doesn't even have an `accomplishments` analog (its labels are `analysis`/`hot_take`/`reaction`) to borrow a decision rule from. What the matrices do show is one-directional: `accomplishments` posts get absorbed into `racing` (2–4 of 5, every seed) and the rest into `health_and_nutrition` — never the reverse, no `racing` or `health_and_nutrition` post was ever called `accomplishments`. A genuinely inconsistent boundary usually shows confusion going both ways; this only goes one way, toward the two labels with far more training data. That pattern is consistent with a volume problem, not an inconsistent-boundary problem, and it's the clearest, most actionable diagnosis of the four — it's what Milestone 5's improvement targets.
 
 ---
 
