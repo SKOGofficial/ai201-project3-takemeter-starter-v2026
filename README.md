@@ -181,6 +181,12 @@ TakeMeter sorts posts from [RunningAHEAD](https://www.runningahead.com/forums), 
 
 **Pre-labelling disclosure:** All 201 rows in `labels.csv` were pre-labelled by Claude (AI) and none were corrected or cold-labelled by me. The brief's allowed workflow for AI pre-labelling requires reading and correcting every one, which I did not do here — I'm disclosing that plainly rather than mislabelling rows `cold`. Every row's `note` says `pre-labelled by AI, uncorrected`.
 
+**Moment 3 (unit 6)**
+
+- *What I asked for:* Help reading the three-seed results and confusion matrices once the numbers were in, and specifically whether the agreement-report disagreements could explain any of the misses — plus, once the diagnosis pointed at `accomplishments` being data-starved, help collecting and labelling 30 more real `accomplishments` posts for the Milestone 5 improvement.
+- *What came back:* The diagnosis that `accomplishments` F1 = 0.000 on every seed traced to the model predicting that label zero times (not to an inconsistent boundary — the confusion only flowed one direction, into the two bigger labels), and a catch I hadn't noticed myself: `data/staff_posts.csv` is pre-sorted in blocks of 10 by true label, which is the likely reason my 30/30 staff agreement came back at 100% instead of the "70s" staff's own doc expects. For Milestone 5, Claude pulled 30 real posts from RunningAHEAD's "Look What I Can Do!" board and labelled each one individually against the Label Taxonomy, flagging boundary cases the same way the original 201 did.
+- *What I changed:* I kept the diagnosis and the ordering caveat as given — both were checkable against the actual JSON/CSV files and held up. For the 30 new posts, I have not yet individually re-read and corrected each one myself; the `note` column discloses this plainly (it says "labelled individually by Claude... not batch-delegated," which is a real improvement on the original 201's workflow, but it's still AI labelling I haven't personally verified row by row). That's the same kind of disclosure gap as Moment 2, smaller in degree (these were read one at a time against the rules, not dumped as a batch) but not eliminated.
+
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
      Don't fill these in during unit 5.
@@ -370,13 +376,22 @@ So: a real, measurable fix for the specific failure the diagnosis named, visible
 
 ## What's Still Broken
 
-<!-- For each criterion still missed: what you'd do, and why you stopped. -->
+Four of five criteria are still MISSED after the improvement.
 
+**1. Confidence coverage (≥70% of predictions at confidence ≥0.7) — 0.0% before and after.**
+What I'd do: this isn't a data-volume problem — Milestone 4's diagnosis showed the model's confidence *ranking* is informative (top-confidence tertile hits 80–100% accuracy) even though no single prediction clears 0.7 in absolute terms. The real fix would be a calibration technique (e.g. temperature scaling) applied after training, not more training data. Why I stopped: that's a different category of change than the three sanctioned improvement types (relabel a boundary / add examples / change a training setting), and this unit allows exactly one change. I used mine on the clearer, larger `accomplishments` failure instead.
 
+**2. Overall accuracy (≥0.90) — 0.714 / 0.771 / 0.771 after (up from 0.645 / 0.710 / 0.613).**
+What I'd do: collect substantially more data across all three labels, not just `accomplishments` — 231 rows is still small for a 3-way boundary this subtle, and I named 0.90 knowing it was ambitious (benchmarked against the staff's own ~70s human-agreement rate, not against what a 231-row fine-tune could realistically hit). Why I stopped: same one-change rule — the improvement already made moved this criterion closer (13–19 points short now vs. 19–29 before) without being targeted at it directly, and a second deliberate change is out of scope for this unit.
+
+**3. Edge-case accuracy (≥0.80 on boundary-flagged posts) — 0.583 / 0.667 / 0.667 after (mixed vs. 0.778 / 0.571 / 0.400 before).**
+What I'd do: add more *boundary-case* examples specifically, not just more examples of the thinnest label — the boundary subset is tiny (n=6–12 per seed) and noisy by construction, exactly as `criteria.md` warned a small subset would be. Why I stopped: the Milestone 4 diagnosis pointed most clearly and most consistently at `accomplishments`'s total collapse, which was the bigger, more mechanically clear-cut problem, so that's where I spent this unit's one allowed change.
+
+**4. Every label F1 (≥0.60 for every label) — still MISSED, now because `racing` dips to 0.588 on seed 7 (not because `accomplishments` is 0.000 anymore).**
+What I'd do: check whether that dip is a seed-7 fluke (run more than three seeds) or a real side effect of rebalancing the dataset toward `accomplishments` — the seed-7 confusion matrix shows 4 of 12 true `racing` posts pulled into `accomplishments`, which could mean the model needs a few more `racing` examples to re-separate the two now that `accomplishments` has more signal to pull toward. Why I stopped: this dip only showed up *after* applying this unit's one allowed change and measuring it — fixing it would be a second change, which the unit's rule doesn't allow.
 
 **The gap between what I meant my labels to capture and what the model
-learned:**
-<!-- Two sentences. Your confusion matrix is the evidence. -->
+learned:** My taxonomy's hardest boundary was always `accomplishments` vs. `racing` — a post reporting the writer's own time, score, or progress counts as `accomplishments` even when it's about a specific race, by a rule about *what the post is doing*, not what words it uses. Both confusion matrices show the model never found that rule: before the fix it defaulted almost every `accomplishments` post to whichever bigger label shared its running vocabulary, and after the fix it overcorrected on one seed, pulling genuine `racing` advice into `accomplishments` instead. Either way, the model is tracking topic words common to both labels, not the "does this post report the writer's own outcome" test that actually decides the boundary — and that's a distinction a 231-example DistilBERT fine-tune may simply not have enough signal to learn on its own.
 
 
 
