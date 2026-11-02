@@ -224,7 +224,12 @@ But `accomplishments` went the other way: 0.333 → 0.000, baseline beating trai
 | 2. Overall accuracy | ≥0.90 | 0.645 | 0.710 | 0.613 | MISSED |
 | 3. Edge-case accuracy | ≥0.80 on boundary-flagged posts | 0.778 (n=9) | 0.571 (n=7) | 0.400 (n=5) | MISSED |
 | 4. Every label F1 | ≥0.60 for every label | 0.000 (`accomplishments`) | 0.000 (`accomplishments`) | 0.000 (`accomplishments`) | MISSED |
-| 5. Consistency with staff | ≥70% agreement | — pending Milestone 3 — | | | |
+| 5. Consistency with staff | ≥70% agreement | 100% (30/30) | — | — | MET* |
+
+\* Not seed-dependent — the agreement set is fixed, not re-split. See the
+**Agreement Report** section below: the 100% figure comes with a caveat about
+`staff_posts.csv`'s label-blocked row order that I think matters more than the
+number itself.
 
 Full per-seed numbers (accuracy, macro F1, and F1 for every label):
 
@@ -295,47 +300,17 @@ The model's biggest confusion is symmetric — 3 real `racing` posts were called
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 30 / 30 = 100%
 
-<!-- Nobody grades this number. A 60% who argues every disagreement from the
-     stated rules beats a 95% who wrote "staff was right" nine times. Several
-     of the 30 were chosen because they're genuinely ambiguous — you should be
-     winning some of these. -->
+**Disagreements:** None. `agreement.py` reports 30 compared, 30 agreed, 0 disagreed (`agreement_results.json`).
 
-**Disagreements**
+**Why I'm not taking 100% at face value:** `data/staff_taxonomy.md` says a rate "in the 70s is normal and expected" precisely because several posts were chosen to be genuinely ambiguous — seven are flagged `borderline: yes` in `data/staff_labels.csv` (sp_005, sp_010, sp_014, sp_019, sp_020, sp_028, sp_029). A perfect score against a set built to produce disagreement is itself a result that needs explaining, not just reporting.
 
-<!-- Three lines each: the post, both labels, and who you think is right and
-     why — grounded in the staff definitions you were both applying.
+I checked `data/staff_posts.csv`'s row order and found the likely explanation: **it's pre-sorted in blocks of exactly 10 by true label** — sp_001–010 are all `analysis`, sp_011–020 all `hot_take`, sp_021–030 all `reaction`, including the borderline cases sitting inside their blocks rather than shuffled in. I labelled the file top to bottom, so by the time I'd read three or four posts into each block I knew what label the block "was," and the hard cases got read with that expectation already set. That's a materially easier task than labelling 30 posts in random order with no positional cue, which is what the staff rate of "in the 70s" implicitly assumes.
 
-     Then sort each into one of three piles:
-       (a) the rule covered it and I applied it loosely → a consistency problem
-       (b) the rule genuinely doesn't say               → a gap in the definitions
-       (c) the rule is ambiguous here and my reading is defensible → argue it.
-           This is a legitimate win.
+So the honest claim is: **I matched staff on every post I labelled, under a procedure that was easier than the one the 70s benchmark was calibrated against.** I did not re-label blind to the ordering — the result above is exactly what `my_staff_labels.csv` produced on the first pass, and I'm reporting it as-is rather than re-running it to get a "cleaner" number after the fact.
 
-     Pile (a) is the one that matters most for your diagnosis: if you applied a
-     written rule two different ways on 30 posts, that is direct evidence about
-     what you did across your own 200. -->
-
-**1.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
-
-**2.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
-
-**What the pattern in my disagreements tells me:**
+**What this means for Milestone 4:** with zero disagreements, this report has no adjudicated cases to use as direct evidence of *which* of my own 200 training labels are inconsistent. What it *can* still support is the boundary-level reasoning in `data/staff_taxonomy.md`'s decision rules (rule 1: fact must be load-bearing, not decoration; rule 2: reaction is about the writer, hot_take is a general claim; rule 3: recency doesn't outrank evidence) — those rules map onto plausible sources of confusion in my own `racing` vs. `accomplishments` boundary even without a staff disagreement to point at directly. Where my own diagnosis needs labelling-consistency evidence, I have to get it from re-reading my own 200 rows, not from this report.
 
 
 
